@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "5493be75-0d09-48e6-8d35-45f9233b1935",
+		"name": "Altaivita",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31407779"
+	},
+	"item": [
+		{
+			"name": "Смойк-тест корзины",
+			"item": [
+				{
+					"name": "Добавление в корзину",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"status\":\"ok\",\"id\":\"1280\",\"name\":\"\\u0422\\u0440\\u0430\\u0432\\u044f\\u043d\\u043e\\u0439 \\u0447\\u0430\\u0439 \\u0421\\u0438\\u0431\\u0438\\u0440\\u0441\\u043a\\u0438\\u0439 \\u0441\\u0438\\u043b\\u044c\\u043d\\u0438\\u043a, 100 \\u0433. \\u0440\\u043e\\u0441\\u0441\\u044b\\u043f\\u044c\\u044e\",\"category\":\"\\u0422\\u0440\\u0430\\u0432\\u044f\\u043d\\u044b\\u0435 \\u0447\\u0430\\u0438\",\"brand\":\"altaivita\",\"variant\":\"\",\"position\":\"1\",\"url\":\"\\/product\\/sbor-sibirskij-silnik\\/\",\"price\":\"1200\",\"this_listId\":null,\"request\":{\"action\":\"ecom_link_products_cart\",\"productID\":\"1280\",\"LANG_key\":\"ru\",\"S_wh\":\"1\",\"S_CID\":\"b1bd0ff9e785cf7d975fac493a88c023\",\"S_cur_code\":\"usd\",\"S_koef\":\"0.01401\",\"S_hint_code\":\"\",\"S_customerID\":\"\"}} \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Base_url}}engine/ajax/ajax_ecommerce/ajax_ecommerce.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Изменение в корзине",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"status\":\"ok\",\"id\":\"1280\",\"name\":\"\\u0422\\u0440\\u0430\\u0432\\u044f\\u043d\\u043e\\u0439 \\u0447\\u0430\\u0439 \\u0421\\u0438\\u0431\\u0438\\u0440\\u0441\\u043a\\u0438\\u0439 \\u0441\\u0438\\u043b\\u044c\\u043d\\u0438\\u043a, 100 \\u0433. \\u0440\\u043e\\u0441\\u0441\\u044b\\u043f\\u044c\\u044e\",\"category\":\"\\u0422\\u0440\\u0430\\u0432\\u044f\\u043d\\u044b\\u0435 \\u0447\\u0430\\u0438\",\"brand\":\"altaivita\",\"variant\":\"\",\"position\":\"5\",\"url\":\"\\/product\\/sbor-sibirskij-silnik\\/\",\"price\":\"1200\",\"this_listId\":null,\"request\":{\"action\":\"ecom_link_products_cart\",\"productID\":\"1280\",\"LANG_key\":\"ru\",\"S_wh\":\"1\",\"S_CID\":\"b1bd0ff9e785cf7d975fac493a88c023\",\"S_cur_code\":\"usd\",\"S_koef\":\"0.01401\",\"S_hint_code\":\"\",\"S_customerID\":\"\"}} \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Base_url}}engine/ajax/ajax_ecommerce/ajax_ecommerce.php\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление из корзины",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"quantity_to_delete\":\"1\",\"price_to_delete\":\"1200\",\"type_items\":\"product\",\"status\":\"ok\",\"alert_text\":\"\",\"total_bonus_discount\":\"0\",\"sum_quantity\":\"0\",\"products_amount\":0,\"cur_icon\":\"$\",\"lang_unit\":\"\\u0448\\u0442.\",\"total_cart_hint\":0,\"total_cart_hint_icon\":null}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{Base_url}}engine/cart/delete_products_from_cart_preview.php"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Base_url",
+			"value": "https://altaivita.ru/",
+			"type": "string"
+		}
+	]
+}
